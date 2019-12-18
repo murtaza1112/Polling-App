@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :mypolls
+  resources :categories
+  resources :polls
   root to: 'pages#home'
   devise_for :views
   devise_for :users
