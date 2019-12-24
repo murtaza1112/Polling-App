@@ -1,6 +1,11 @@
 
 <% if current_user %>
+
+<% if current_user.admin %>
+<h1>Welcome Back,<%= (current_user.email.split('@'))[0].capitalize %>(admin)</h1>
+<%else%>
 <h1>Welcome Back,<%= (current_user.email.split('@'))[0].capitalize %></h1>
+<%end%>
 
 <p>Poll Question:What is Your favourite fruit?</p>
 
