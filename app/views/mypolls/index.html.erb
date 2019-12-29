@@ -3,12 +3,15 @@
 <h1 align=center>Polls</h1>
 
 <h2 align=center>My Polls</h2>
+<%i=0%>
+
+<%i+=1%>
 <table border=1 align=center>
   <thead>
     <tr>
+      <th>Sr No.</th>
       <th>Category</th>
       <th>User</th>
-      <th>Count</th>
       <th>Edit</th>
       <th>Destroy</th>
     </tr>
@@ -18,44 +21,49 @@
     <% if @mypolls.each do |mypoll| %>
      <% if mypoll.user == current_user %>
       <tr>
+        <td><%= i %></td>
         <td><%= mypoll.category.name %></td>
         <td><%= mypoll.user.email %></td>
-        <td><%= mypoll.category.count %></td>
         <td><%= link_to 'Edit', edit_mypoll_path(mypoll) %></td>
         <td><%= link_to 'Destroy', mypoll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
        </tr> 
       <%end%>  
-        <% end.empty? %>  
-    <P>You have not yet voted</P>
-     <p><%= link_to 'Click here to add poll',new_mypoll_path%>
-    <%end%>
+       <%end%>  
   
   </tbody>
 </table>
-
-
+ <% end.empty? %>  
+    <P>You have not yet voted</P>
+     <p><%= link_to 'Click here to add poll',new_mypoll_path%>
+  
+<br><Br>
 <h2 align=center>Other Polls</h2>
+<br>
+<%i=0%>
+<% if @mypolls.each do |mypoll| %>
 
 <table border=1 align=center>
   <thead>
     <tr>
+      <th>Sr No.</th>
       <th>Category</th>
       <th>User</th>
-      <th>Count</th>
+     
     </tr>
   </thead>
 
   <tbody>
-    <% if @mypolls.each do |mypoll| %>
+    
       <% if mypoll.user != current_user %>
-      <tr>
+      <tr><%i=+1%>
+        <td><%= i%></td>
         <td><%= mypoll.category.name %></td>
         <td><%= mypoll.user.email %></td>
-        <td><%= mypoll.category.count %></td>
+        
         <%end%>  
       </tr>
      <% end.empty? %>  
-     <P>Sorry,there are no posts in this category</P>
+     <P>Sorry,there are no polls in this category</P>
     <%end%> 
   </tbody>
 </table>

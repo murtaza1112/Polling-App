@@ -1,7 +1,7 @@
 
 <% if current_user %>
 
-<% if current_user.admin %>
+<% if current_user.admin==true %>
 <h1>Welcome Back,<%= (current_user.email.split('@'))[0].capitalize %>(admin)</h1>
 <%else%>
 <h1>Welcome Back,<%= (current_user.email.split('@'))[0].capitalize %></h1>
@@ -9,27 +9,23 @@
 
 <p>Poll Question:What is Your favourite fruit?</p>
 
-   <% if current_user.admin %>
-     <h2>For Admin Only</h2>
-     <%= link_to 'Add Categories',categories_path%>
-
-   <%end%>
-
   <% if current_user.count==0%>
 
   <p><%= link_to 'Create Your Poll', new_mypoll_path %></p>
 
  <% end%>
-
+<p><%= link_to 'View Categories', categories_path %></p>
   <p><%= link_to 'View Polls', mypolls_path %></p>
   
 <%= link_to 'Sign Out', destroy_user_session_path,method: :delete %>
 <%= pie_chart @pollsarray %>
 <%else%>
-<h1>Welcome To The HomePage</h1>
-<%= link_to 'Sign Up', new_user_registration_path %>
+<h1>Welcome To Polling Website</h1>
+<div class = "login-form1">
+<%= link_to 'Sign Up', new_user_registration_path,:class=> "logbtn"%>
 <br>
-<%= link_to 'Sign In', new_user_session_path %>
+<%= link_to 'Sign In', new_user_session_path,:class=> "logbtn"%>
+</div>
 <%end%>
 
 

@@ -3,7 +3,8 @@ class PagesController < ApplicationController
   	if current_user
   		if current_user.id == 1
        current_user.admin=true
-end 
+       current_user.save
+   end 
     end
   end
 end
