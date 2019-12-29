@@ -1,12 +1,9 @@
-<p id="notice"><%= notice %></p>
 
 <h1 align=center>Polls</h1>
 
 <h2 align=center>My Polls</h2>
-<%i=0%>
 
-<%i+=1%>
-<table border=1 align=center>
+<table border=1 style="margin: 0 auto;text-align: center;">
   <thead>
     <tr>
       <th>Sr No.</th>
@@ -21,28 +18,25 @@
     <% if @mypolls.each do |mypoll| %>
      <% if mypoll.user == current_user %>
       <tr>
-        <td><%= i %></td>
+        <td>1</td>
         <td><%= mypoll.category.name %></td>
         <td><%= mypoll.user.email %></td>
         <td><%= link_to 'Edit', edit_mypoll_path(mypoll) %></td>
         <td><%= link_to 'Destroy', mypoll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
        </tr> 
       <%end%>  
-       <%end%>  
-  
+  <%end%>
+<%end%>
+
   </tbody>
 </table>
- <% end.empty? %>  
-    <P>You have not yet voted</P>
-     <p><%= link_to 'Click here to add poll',new_mypoll_path%>
-  
+ 
 <br><Br>
 <h2 align=center>Other Polls</h2>
 <br>
-<%i=0%>
-<% if @mypolls.each do |mypoll| %>
 
-<table border=1 align=center>
+<%i=0%>
+<table border=1 style="margin: 0 auto;text-align: center;">
   <thead>
     <tr>
       <th>Sr No.</th>
@@ -51,29 +45,33 @@
      
     </tr>
   </thead>
-
+<% if @mypolls.each do |mypoll| %>
   <tbody>
-    
+    <%i +=1%>
       <% if mypoll.user != current_user %>
-      <tr><%i=+1%>
-        <td><%= i%></td>
+      <tr>
+        <td><%=i%></td>
+
         <td><%= mypoll.category.name %></td>
+        <% if !mypoll.user.admin %>
         <td><%= mypoll.user.email %></td>
-        
+        <%else%>
+         <td>(a)|<%= mypoll.user.email %></td>
+        <%end%>
         <%end%>  
       </tr>
-     <% end.empty? %>  
-     <P>Sorry,there are no polls in this category</P>
     <%end%> 
   </tbody>
 </table>
+<%end%>
 
-     
+     <br>
      <h2 align=center>Pie Chart</h2>
     
    <%= pie_chart @pollsarray %>
    <%= link_to 'Back', '/' %>
 <br>
+
 
 
 

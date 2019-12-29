@@ -17,6 +17,7 @@ require("chart.js")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
   //= require jquery3 # add this line
+  //= require jquery_ujs
     //= require popper # add this line
     //= require bootstrap # add this line
     //= require Chart.bundle # add this line

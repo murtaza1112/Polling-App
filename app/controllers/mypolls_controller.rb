@@ -76,6 +76,8 @@ class MypollsController < ApplicationController
         @category.count-=1
         @category.save
         end
+        current_user.count-=1
+        current_user.save
         @mypoll.destroy
     
     respond_to do |format|

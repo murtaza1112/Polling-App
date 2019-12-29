@@ -3,8 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 gem 'devise'
-      gem 'bootstrap', '~> 4.1.0'
+      gem 'bootstrap'
     gem 'jquery-rails'
+    gem 'popper_js'
+    gem 'tether-rails'
     gem 'chartkick'
     gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
