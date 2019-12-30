@@ -1,6 +1,12 @@
+
+    <%if current_user.admin %>
+
 <h1>Editing Category</h1>
 
 <%= render 'form', category: @category %>
 
 <%= link_to 'Show', @category %> |
 <%= link_to 'Back', categories_path %>
+<%else%>
+<p>Sorry you need to possess admin rights to access this page</p>
+<%end%>
