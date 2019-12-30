@@ -7,6 +7,16 @@ class MypollsController < ApplicationController
   def index
     @mypolls = Mypoll.all
     @category1 = Category.all
+    
+    @apolls =[]
+    @anpolls =[]
+    @mypolls.each do |poll|
+     if poll.user==current_user
+     @apolls.push(poll)
+     elsif
+    @anpolls.push(poll)
+     end
+    end
 
     @pollsarray =[]
     @category1.each do |poll|

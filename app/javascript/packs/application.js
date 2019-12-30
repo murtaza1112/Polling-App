@@ -18,13 +18,20 @@ require("chart.js")
 // const imagePath = (name) => images(name, true)
   //= require jquery3 # add this line
   //= require jquery_ujs
-  //= require turbolinks
     //= require popper # add this line
     //= require bootstrap # add this line
     //= require Chart.bundle # add this line
     //= require chartkick # add this line
     //= require_tree .
    //= require turbolinks 
+
+ $(document).ready(function(){
+    setTimeout(function(){
+      $('#notice_wrapper').fadeOut("slow", function() {
+        $(this).remove();
+      })
+    }, 4500);
+  });
 
 
     
