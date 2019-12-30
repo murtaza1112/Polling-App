@@ -1,20 +1,19 @@
 <div class="container">
 <% if current_user %>
 
-<h1>Welcome Back,<%= (current_user.email.split('@'))[0].capitalize %></h1>
-
+<h1 class="head">Welcome Back,<%= (current_user.email.split('@'))[0].capitalize %></h1>
+<div class = "login-form1" style="height:400;">
 <p>Poll Question:What is Your favourite fruit?</p>
 
   <% if current_user.count==0%>
 
-  <p><%= link_to 'Create Your Poll', new_mypoll_path %></p>
+  <p><%= link_to 'Create Your Poll', new_mypoll_path,:class=> "logbtn" %></p>
 
  <% end%>
-<p><%= link_to 'View Categories', categories_path %></p>
-  <p><%= link_to 'View Polls', mypolls_path %></p>
+<p><%= link_to 'View Categories', categories_path,:class=> "logbtn" %></p>
+  <p><%= link_to 'View Polls', mypolls_path,:class=> "logbtn" %></p>
   
-<%= link_to 'Sign Out', destroy_user_session_path,method: :delete %>
-
+</div>
 <%= pie_chart @pollsarray %>
 
 <%else%>
@@ -24,7 +23,7 @@
 <br>
 <%= link_to 'Sign In', new_user_session_path,:class=> "logbtn"%>
 </div>
+
 <%end%>
 </div>
-
 

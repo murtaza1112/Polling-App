@@ -15,6 +15,7 @@
  */ 
  @import 'bootstrap';
   @import 'pages';
+@import 'home';
 
 #notice_wrapper{
 	position: relative;
@@ -33,4 +34,19 @@
 	letter-spacing:1px;
     color: #FFFFFF
 	}
+}
+
+.head{
+    font-family: 'Girassol', cursive;
+    word-spacing: 2px;
+    text-shadow: 3px 3px #615B8A;
+	text-align:center;
+}
+
+.mypol{
+	border-style: groove;
+	border-color: black;
+	border-width: 2px;
+	border-radius: 20px;
+	background-color: #4D4964;
 }

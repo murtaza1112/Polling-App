@@ -1,9 +1,10 @@
-
-<h1>Categories</h1><br>
-
+<div class="container">
+  <h1 class="head">Categories</h1>
+<%= link_to 'New Category', new_category_path, :class=>"btn btn-block btn-dark" %>
+<br>
 <% if current_user.admin==true %>
 
-<table border=1 style="margin:0 auto;">
+<table border=3 class="table table-hover table-dark" style="text-align:center;">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,7 +17,7 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
+        <td><%= category.name.capitalize %></td>
         <td><%= category.count %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,8 +26,9 @@
   </tbody>
 </table>
 
-<%= link_to 'New Category', new_category_path %><br>
-<%= link_to 'Back', root_path %>
+
+
+
 <% else%>
 
 <h4>Categories Available:</h4>
@@ -40,3 +42,5 @@
 </ul> 
 <%= link_to 'Back', root_path %>
 <%end%>
+
+</div>

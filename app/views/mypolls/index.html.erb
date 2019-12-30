@@ -1,12 +1,14 @@
-
-<h1 align=center>Polls</h1>
-
+<div class="container">
 <h2 align=center>My Polls</h2>
 
 <%if @apolls.empty? %>
- <p>Sorry,there are no posts,<td><%= link_to 'Clich here to add a post', new_mypoll_path %></td></p>
+<div class="mypol">
+ <p class="polls2">Sorry,you have not created any polls.</p>
+
+ <p class="polls2"><%= link_to 'Add Poll', new_mypoll_path ,:class=>"btn btn-dark" %></p>
+</div>
 <%else%>
-<table border=1 style="margin: 0 auto;text-align: center;">
+<table border=1 style="margin: 0 auto;text-align: center;" class="table table-hover table-sm table-secondary">
   <thead>
     <tr>
       <th>Sr No.</th>
@@ -22,7 +24,7 @@
      
       <tr>
         <td>1</td>
-        <td><%= mypoll.category.name %></td>
+        <td><%= mypoll.category.name.capitalize %></td>
         <td><%= mypoll.user.email %></td>
         <td><%= link_to 'Edit', edit_mypoll_path(mypoll) %></td>
         <td><%= link_to 'Destroy', mypoll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -39,10 +41,10 @@
 <br>
 
 <%if @anpolls.empty? %>
- <p>Sorry,there are no posts</p>
+ <p class="polls2">Sorry,No polls have been created.</p>
 <%else%>
 <%i=0%>
-<table border=1 style="margin: 0 auto;text-align: center;">
+<table border=1 style="margin: 0 auto;text-align: center;" class="table table-hover table-sm table-dark">
   <thead>
     <tr>
       <th>Sr No.</th>
@@ -57,7 +59,7 @@
       <tr>
         <td><%=i%></td>
 
-        <td><%= mypoll.category.name %></td>
+        <td><%= mypoll.category.name.capitalize %></td>
         <% if !mypoll.user.admin %>
         <td><%= mypoll.user.email %></td>
         <%else%>
@@ -73,9 +75,15 @@
      <h2 align=center>Pie Chart</h2>
     
    <%= pie_chart @pollsarray %>
-   <%= link_to 'Back', '/' %>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
 <br>
 
-
+</div>
 
 
