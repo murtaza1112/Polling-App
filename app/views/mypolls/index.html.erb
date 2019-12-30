@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% if @mypolls.each do |mypoll| %>
+    <% @mypolls.each do |mypoll| %>
      <% if mypoll.user == current_user %>
       <tr>
         <td>1</td>
@@ -26,8 +26,6 @@
        </tr> 
       <%end%>  
   <%end%>
-<%end%>
-
   </tbody>
 </table>
  
@@ -45,7 +43,7 @@
      
     </tr>
   </thead>
-<% if @mypolls.each do |mypoll| %>
+<% @mypolls.each do |mypoll| %>
   <tbody>
     <%i +=1%>
       <% if mypoll.user != current_user %>
@@ -63,7 +61,7 @@
     <%end%> 
   </tbody>
 </table>
-<%end%>
+
 
      <br>
      <h2 align=center>Pie Chart</h2>
