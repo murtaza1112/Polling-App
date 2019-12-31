@@ -2,7 +2,7 @@
 <% if current_user %>
 
 <h1 class="head">Welcome Back,<%= (current_user.email.split('@'))[0].capitalize %></h1>
-<div class = "login-form1" style="height:400;">
+<div class = "login-form3" style="left:25%;width:50%;">
 <p>Poll Question:What is Your favourite fruit?</p>
 
   <% if current_user.count==0%>

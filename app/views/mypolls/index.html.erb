@@ -2,10 +2,10 @@
 <h2 align=center>My Polls</h2>
 
 <%if @apolls.empty? %>
-<div class="mypol">
- <p class="polls2">Sorry,you have not created any polls.</p>
+<div class="mypol" style="background-color:#A89EE9;border-color:#5541D2;">
+ <p class="polls2" style="color:white;padding-top:10px;">Sorry,you have not created any polls.</p>
 
- <p class="polls2"><%= link_to 'Add Poll', new_mypoll_path ,:class=>"btn btn-dark" %></p>
+ <p class="polls2"><%= link_to 'Add Poll', new_mypoll_path ,:class=>"logbtn2" %></p>
 </div>
 <%else%>
 <table border=1 style="margin: 0 auto;text-align: center;" class="table table-hover table-sm table-secondary">
@@ -41,7 +41,8 @@
 <br>
 
 <%if @anpolls.empty? %>
- <p class="polls2">Sorry,No polls have been created.</p>
+<div class="mypol" style="background-color:#A89EE9;border-color:#5541D2;">
+ <p class="polls2" style="color:white;padding-top:10px;">Sorry,No polls have been created.</p></div>
 <%else%>
 <%i=0%>
 <table border=1 style="margin: 0 auto;text-align: center;" class="table table-hover table-sm table-dark">
@@ -73,8 +74,10 @@
 
      <br>
      <h2 align=center>Pie Chart</h2>
-    
+    <br>
+  <div class="mypol" style="background-color:#A89EE9;border-color:#5541D2;">
    <%= pie_chart @pollsarray %>
+ </div>
  <br>
  <br>
  <br>

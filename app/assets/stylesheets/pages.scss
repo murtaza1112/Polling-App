@@ -18,13 +18,10 @@ body{
 .login-form{
   width: 360px;
   background: #f1f1f1;
-  height: 580px;
-  padding: 80px 40px;
+  padding: 40px 40px;
   border-radius: 10px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  position: relative;
+  left:25%;
 }
 .login-form1{
   width: 360px;
@@ -112,3 +109,23 @@ body{
   text-align: center;
   font-size: 13px;
 }
+
+
+.logbtn2{
+  font-size: 15px;
+  border: none;
+  background: linear-gradient(120deg,#3498db,#8e44ad,#3498db);
+  background-size: 200%;
+  text-align: center;
+  color: #fff;
+  padding: 9px;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  text-decoration:none;
+}
+
+.logbtn2:hover{
+  background-position: right;
+}
+

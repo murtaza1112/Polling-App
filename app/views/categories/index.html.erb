@@ -1,9 +1,10 @@
 <div class="container">
   <h1 class="head">Categories</h1>
+  
+
+<% if current_user.admin==true %>
 <%= link_to 'New Category', new_category_path, :class=>"btn btn-block btn-dark" %>
 <br>
-<% if current_user.admin==true %>
-
 <table border=3 class="table table-hover table-dark" style="text-align:center;">
   <thead>
     <tr>
@@ -31,16 +32,16 @@
 
 <% else%>
 
-<h4>Categories Available:</h4>
+<div class="cat">
 <ul> 
            
     <% @categories.each do |category| %>
       
-        <li><%= category.name %></li>
+        <li><%= category.name.capitalize %></li>
         
     <% end %>  
 </ul> 
-<%= link_to 'Back', root_path %>
+</div>
 <%end%>
 
 </div>

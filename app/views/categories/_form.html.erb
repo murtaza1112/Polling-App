@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
+<div class="container login-form3">
+  <div class="txtb">
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
+ </div>
+ <div class="txtb">
   <div class="field">
     <%= form.label :count %>
     <%= form.number_field :count %>
   </div>
-
+</div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create" ,:class => "logbtn" %>
   </div>
+</div>
 <% end %>
