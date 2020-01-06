@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @mypoll = Mypoll.new
   end
 
   # GET /categories/1/edit
@@ -25,9 +26,10 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
+    @mypoll = Mypoll.new()
 
     respond_to do |format|
-      if @category.save
+      if @category.save and @mypoll.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
@@ -78,4 +80,6 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name, :count)
     end
+
+  
 end
